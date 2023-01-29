@@ -1,7 +1,7 @@
 {
-  "name": "genie",
+  "name": "jeannie",
   "author": "“Matt Neary",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Your new favorite bash command",
   "main": "./genie",
   "scripts": {

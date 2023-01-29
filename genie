@@ -1,6 +1,18 @@
 #!/bin/bash
-input_txt=$(cat)
-prompt=$(echo -e "Perform a transformation on this input text:\n\n$input_txt\n\nTransformation: $1\nResult:" | jq -sR .)
+if [ $# -eq 0 ]
+then
+    echo "genie: no arguments supplied"
+    echo "usage: genie [command]"
+    exit 1
+fi
+
+if [ -t 0 ]
+then
+  prompt=$(echo -e "Generate a bash script that performs the following transformation\n\nTransformation: $1\nResult:" | jq -sR .)
+else
+  input_txt=$(cat)
+  prompt=$(echo -e "Perform a transformation on this input text:\n\n$input_txt\n\nTransformation: $1\nResult:" | jq -sR .)
+fi
 curl https://api.openai.com/v1/completions \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer $OPENAI_API_KEY" \

@@ -1,8 +1,8 @@
 {
   "name": "jeannie",
-  "author": "“Matt Neary",
-  "version": "0.0.3",
-  "description": "Your new favorite bash command",
+  "author": "Matt Neary",
+  "version": "0.0.4",
+  "description": "your wish is the command",
   "main": "./genie",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mattneary/genie.git"
+    "url": "git+https://github.com/mattneary/jeannie.git"
   },
   "bin": {
     "genie": "./genie"

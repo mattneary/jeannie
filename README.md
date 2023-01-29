@@ -1,4 +1,4 @@
-# jeannie 🧞
+# jeannie 🧞‍♀️
 
 There's an [old story](http://www.leancrew.com/all-this/2011/12/more-shell-less-egg/) among
 programmers about Donald Knuth and Doug McIlroy. It centers on the following

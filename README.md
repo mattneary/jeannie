@@ -1,4 +1,4 @@
-# genie
+# jeannie
 
 ![I Dream of Jeannie](jeannie.png)
 

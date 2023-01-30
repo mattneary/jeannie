@@ -33,10 +33,11 @@ This tool has the same strengths, and weaknesses, as GPT-3 generally. The above
 task involves precision and counting, so should realistically not be done using
 `genie`.
 
-Instead, think about things like this:
+Instead, think about things like these:
 
 ```bash
-$ cat post.md | genie "summarize this essay"`
+$ cat post.md | genie "summarize this essay"
+$ ls | genie "label each file with what it does"
 ```
 
 Alternatively, if you want help with a structured task you can instead use

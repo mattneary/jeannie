@@ -48,7 +48,7 @@ Under the hood, `jeannie` is two tools in one. First, GPT-3 is used to sort the
 given command into one of two buckets: tasks involving soft skills are
 completed by a follow-on GPT-3 completion, whereas tasks that demand greater
 precision are delegated to bash--with GPT-3 being used to generate the bash
-code. The triage prompt runs in `assign.sh`. The main code is in `genie`.
+code. The triage prompt is broke into a function called `assign`.
 
 ## Installation
 

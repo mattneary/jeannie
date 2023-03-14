@@ -17,51 +17,38 @@ from there.
 ```bash
 $ cat if.txt | genie "determine the 5 most frequently used words, and print out a sorted list of those words along with their frequencies"
 ######################################################################## 100.0%
-1. you (9 times)
-2. can (8 times)
-3. and (7 times)
-4. If (7 times)
-5. your (6 times)
-```
-
-⚠️  Unfortunately, the solution might be a total hallucination. The above are
-not, in fact, the correct frequencies from Rudyard Kipling's "If—."
-
-## Practical Tips
-
-This tool has the same strengths, and weaknesses, as GPT-3 generally. The above
-task involves precision and counting, so should realistically not be done using
-`genie`.
-
-Instead, think about things like these:
-
-```bash
-$ cat post.md | genie "summarize this essay"
-$ ls | genie "label each file with what it does"
-```
-
-Alternatively, if you want help with a structured task you can instead use
-`genie` to generate a bash script, which in turn will give you more exact
-answers:
-
-```bash
-$ genie "read stdin, determine the 5 most frequently used words, and print out a sorted list of those words along with their frequencies"
 ######################################################################## 100.0%
-
-#!/bin/bash
-
-# Read stdin
-words=$(cat)
-
-# Count the frequency of each word
-freq=$(echo $words | tr ' ' '\n' | sort | uniq -c | sort -nr)
-
-# Get the 5 most frequently used words
-top_five=$(echo "$freq" | head -n 5)
-
-# Print out the sorted list of words and their frequencies
-echo "$top_five"
+  16 and
+  14 you
+  13 if
+  12 can
+  10 your
 ```
+
+But `jeannie` is good at all kinds of things, including many that you couldn't
+normally do from the command-line. Here's another example:
+
+```bash
+cat if.txt | ./genie "Write a summary of this poem and select a couple of the best quotes"
+######################################################################## 100.0%
+######################################################################## 100.0%
+This poem is about having the strength and courage to stay true to yourself and
+your values, even when faced with difficult situations. It encourages the
+reader to remain resilient and to not be swayed by the opinions of others. Two
+of the best quotes from the poem are: "If you can wait and not be tired by
+waiting, / Or being lied about, don’t deal in lies," and "If you can fill the
+unforgiving minute / With sixty seconds’ worth of distance run, / Yours is the
+Earth and everything that’s in it, / And—which is more—you’ll be a Man, my
+son!"
+```
+
+## How It Works
+
+Under the hood, `jeannie` is two tools in one. First, GPT-3 is used to sort the
+given command into one of two buckets: tasks involving soft skills are
+completed by a follow-on GPT-3 completion, whereas tasks that demand greater
+precision are delegated to bash--with GPT-3 being used to generate the bash
+code. The triage prompt runs in `assign.sh`. The main code is in `genie`.
 
 ## Installation
 

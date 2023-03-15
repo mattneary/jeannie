@@ -11,10 +11,3 @@ then
     echo "usage: genie [command]"
     exit 1
 fi
-
-if [ -t 0 ]
-then
-    echo "genie: no input provided on stdin"
-    echo "example usage: ls -la | genie [command]"
-    exit 1
-fi

@@ -35,17 +35,33 @@ function assign() {
 triage=$(assign "$1")
 if [ "$triage" = "Computer Algorithm" ]
 then
-  prompt=$(echo -e "Generate a bash script that performs the following transformation on the contents of stdin\n\nTransformation: $1\nResult:" | jq -sR .)
-
+  # allocate temp file
   dir=$(mktemp -d "/tmp/jeannie.XXXXX.XXXXX")
   scratch="$dir/scratch.sh"
 
-  get_completion "$prompt" > "$scratch"
+  if [ -t 0 ]
+  then
+    # no stdin
+    prompt=$(echo -e "Generate a bash script that performs the listed task\n\nTask: $1\nResult:" | jq -sR .)
+    get_completion "$prompt" > "$scratch"
+  else
+    # with stdin
+    prompt=$(echo -e "Generate a bash script that performs the listed transformation on the contents of stdin\n\nTransformation: $1\nResult:" | jq -sR .)
+    get_completion "$prompt" > "$scratch"
+  fi
   chmod +x "$scratch"
   "$scratch"
 else
-  input_txt=$(cat)
-  prompt=$(echo -e "Perform a transformation on this input text:\n\n$input_txt\n\nTransformation: $1\nResult:" | jq -sR .)
-  get_completion "$prompt"
+  if [ -t 0 ]
+  then
+    # no stdin
+    prompt=$(echo -e "Perform the listed task\n\nTask: $1\nResult:" | jq -sR .)
+    get_completion "$prompt"
+  else
+    # with stdin
+    input_txt=$(cat)
+    prompt=$(echo -e "Perform a transformation on this input text:\n\n$input_txt\n\nTransformation: $1\nResult:" | jq -sR .)
+    get_completion "$prompt"
+  fi
 fi
 

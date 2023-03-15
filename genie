@@ -49,6 +49,7 @@ then
     prompt=$(echo -e "Generate a bash script that performs the listed transformation on the contents of stdin\n\nTransformation: $1\nResult:" | jq -sR .)
     get_completion "$prompt" > "$scratch"
   fi
+  echo "Running script at $scratch..."
   chmod +x "$scratch"
   "$scratch"
 else

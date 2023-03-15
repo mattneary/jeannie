@@ -1,7 +1,7 @@
 {
   "name": "jeannie",
   "author": "Matt Neary",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "your wish is the command",
   "main": "./genie",
   "scripts": {

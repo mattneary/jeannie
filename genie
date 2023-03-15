@@ -1,22 +1,9 @@
-#!/bin/bash
-if [[ -z "$OPENAI_API_KEY" ]]
+#!/usr/bin/env cdrepo
+./check_args.sh
+
+if [ $? == 1 ]
 then
-  echo "genie: OPENAI_API_KEY is unset"
   exit 1
-fi
-
-if [ $# -eq 0 ]
-then
-    echo "genie: no arguments supplied"
-    echo "usage: genie [command]"
-    exit 1
-fi
-
-if [ -t 0 ]
-then
-    echo "genie: no input provided on stdin"
-    echo "example usage: ls -la | genie [command]"
-    exit 1
 fi
 
 function assign() {

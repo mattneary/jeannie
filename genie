@@ -1,4 +1,6 @@
 #!/usr/bin/env cdrepo
+echo "$0"
+exit 1
 ./check_args.sh
 
 if [ $? == 1 ]

@@ -1,4 +1,4 @@
-#!/usr/bin/env cdrepo
+#!/bin/bash
 ./check_args.sh "$@" || exit 1
 
 function get_completion() {

@@ -13,5 +13,6 @@
   },
   "bin": {
     "genie": "./genie"
-  }
+  },
+  "license": "GPL-3.0"
 }

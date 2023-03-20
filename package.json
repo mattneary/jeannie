@@ -1,11 +1,11 @@
 {
   "name": "jeannie",
   "author": "Matt Neary",
-  "version": "0.1.12",
+  "version": "0.2.0",
   "description": "your wish is the command",
   "main": "./genie",
   "scripts": {
-    "postinstall": "npm i -g cdrepo && brew bundle"
+    "postinstall": "npm i -g cdrepo tmplrun && brew bundle"
   },
   "repository": {
     "type": "git",

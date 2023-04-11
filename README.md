@@ -11,7 +11,7 @@ In the end, both men come up with a solution. But while Knuth's program is long
 and formal, McIlroy's is a six-command shell pipeline.
 
 Now, with `jeannie`, I present the one-command shell pipeline that solves the
-same problem. Now, *the problem statement is the solution*.
+same problem. Now, **the problem statement is the solution**.
 
 ```bash
 $ cat if.txt | genie "determine the 5 most frequently used words, and print out a sorted list of those words along with their frequencies"
@@ -38,8 +38,8 @@ Under the hood, `jeannie` is two tools in one. First, GPT-3 is used to sort the
 given command into one of two buckets: tasks involving soft skills are
 completed by GPT-3 with the result being streamed right to your terminal,
 whereas tasks that demand greater precision are delegated to bash--with GPT-3
-being used to generate the bash code. The triage prompt is in a prompt file
-called `assign.sh`.
+being used to generate the bash code. The triage prompt is in a file called
+`assign.sh`.
 
 ## Installation
 

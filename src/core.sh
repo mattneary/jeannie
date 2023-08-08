@@ -24,7 +24,7 @@ function get_completion() {
     -H "Content-Type: application/json" \
     -H "Authorization: Bearer $OPENAI_API_KEY" \
     -d "{\"model\": \"text-davinci-003\", \"prompt\": $prompt, \"temperature\": 0, \"max_tokens\": 1000}" \
-    -# | jq -r .choices[0].text
+    -s | jq -r .choices[0].text
 }
 
 function run_streaming() {

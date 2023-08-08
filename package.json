@@ -12,7 +12,8 @@
     "url": "git+https://github.com/mattneary/jeannie.git"
   },
   "bin": {
-    "jeannie": "./genie"
+    "jeannie": "./genie",
+    "genie": "./genie"
   },
   "license": "GPL-3.0"
 }

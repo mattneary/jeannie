@@ -1,7 +1,7 @@
 {
   "name": "jeannie",
   "author": "Matt Neary",
-  "version": "0.2.0",
+  "version": "0.2.2",
   "description": "your wish is the command",
   "main": "./genie",
   "scripts": {
@@ -12,7 +12,7 @@
     "url": "git+https://github.com/mattneary/jeannie.git"
   },
   "bin": {
-    "genie": "./genie"
+    "jeannie": "./genie"
   },
   "license": "GPL-3.0"
 }
